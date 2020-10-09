@@ -45,12 +45,13 @@ jobs:
             mingw-w64-$MSYS2_ARCH-toolchain \
             mingw-w64-$MSYS2_ARCH-cantarell-fonts \
             mingw-w64-$MSYS2_ARCH-python3-pip \
-            mingw-w64-$MSYS2_ARCH-python3
+            mingw-w64-$MSYS2_ARCH-python3 \
+            mingw-w64-x86_64-ninja
         
 
     - shell: msys2 {0}
       run: |
-         pip3 install requests meson ninja
+         pip3 install requests meson
          python3 setup-build-pango.py
 
     - uses: actions/upload-artifact@v2
