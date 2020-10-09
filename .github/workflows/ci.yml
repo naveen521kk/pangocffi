@@ -28,6 +28,7 @@ jobs:
 
     - name: Build Pango
       run: |
+        pip install requests
         python setup-build-pango.py
 
     - uses: actions/upload-artifact@v2
