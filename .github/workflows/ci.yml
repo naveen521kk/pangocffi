@@ -44,7 +44,7 @@ jobs:
             mingw-w64-$MSYS2_ARCH-meson \
             mingw-w64-$MSYS2_ARCH-toolchain \
             mingw-w64-$MSYS2_ARCH-cantarell-fonts
-        
+        mkdir subproject
         cp /MINGW64/bin/* "subproject"
 
     - name: Build Pango
