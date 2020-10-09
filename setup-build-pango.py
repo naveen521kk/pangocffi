@@ -20,7 +20,7 @@ def shell(cmd, cwd=None):
 if path.exists("build"):
   shutil.rmtree("build")
 os.mkdir("build")
-os.mkdir("build/pango")
+#os.mkdir("build/pango")
 os.mkdir("build/download")
 FILE_NAME= path.basename(PANGO_URL)
 TAR_FILE=path.join(download_dir,FILE_NAME)
