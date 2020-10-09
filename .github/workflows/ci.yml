@@ -32,7 +32,6 @@ jobs:
 
     - shell: msys2 {0}
       run: |
-        pacman --noconfirm -Suy
         export MSYS2_ARCH="x86_64"
         pacman --noconfirm -S --needed \
             base-devel \
