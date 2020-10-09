@@ -43,11 +43,17 @@ jobs:
             mingw-w64-$MSYS2_ARCH-cairo \
             mingw-w64-$MSYS2_ARCH-meson \
             mingw-w64-$MSYS2_ARCH-toolchain \
-            mingw-w64-$MSYS2_ARCH-cantarell-fonts
-        pip install requests meson ninja
-        python setup-build-pango.py
+            mingw-w64-$MSYS2_ARCH-cantarell-fonts \
+            mingw-w64-$MSYS2_ARCH-python3-pip \
+            mingw-w64-$MSYS2_ARCH-python3
+        
+
+    - shell: msys2 {0}
+      run: |
+         pip3 install requests meson ninja
+         python3 setup-build-pango.py
 
     - uses: actions/upload-artifact@v2
       with:
         name: dist
-        path: build/pango/*
+        path: C:\pango
