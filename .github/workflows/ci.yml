@@ -26,12 +26,30 @@ jobs:
       with:
         python-version: '3.8'
 
+    - uses: msys2/setup-msys2@v2
+      with:
+        msystem: MINGW64
+        update: true
+        install: >-
+            mingw-w64-x86_64-gobject-introspection
+            mingw-w64-x86_64-harfbuzz 
+            mingw-w64-x86_64-fontconfig 
+            mingw-w64-x86_64-fribidi
+            mingw-w64-x86_64-libthai 
+            mingw-w64-x86_64-cairo
+            mingw-w64-x86_64-toolchain 
+            mingw-w64-x86_64-cantarell-fonts 
+    - shell: msys2 {0}
+      run: |
+        cp /MINGW64/bin/* "subproject"
+
     - name: Build Pango
       run: |
+        $env:PATH = "$PWD\subproject;$env:PATH"
         pip install requests
         python setup-build-pango.py
 
     - uses: actions/upload-artifact@v2
       with:
         name: dist
-        path: build/pango/*
+        path: build/pango/pangobin/*

@@ -34,5 +34,5 @@ os.rename(path.join(download_dir,f"pango-{pango_version}"), path.join(build_dir)
 print("# Upgrade Meson and Ninja")
 shell("pip install -U meson ninja")
 
-shell("meson build --default-library=both -Dfontconfig=enabled -Dcairo=enabled -Dfreetype=enabled",cwd=build_dir)
+shell("meson build --default-library=static -Dfontconfig=enabled -Dcairo=enabled -Dfreetype=enabled pangobin",cwd=build_dir)
 shell("ninja -C build",cwd=build_dir)
